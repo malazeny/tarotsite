@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepare Your Mind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="intent.css">
+</head>
+<body>
+  <div class="intent-container">
+    <h1>Close your eyes...</h1>
+    <p>Take a deep breath and think about what you want a Tarot reading on.</p>
+    <div class="timer">10</div>
+    <button id="continueBtn">I'm Ready</button>
+  </div>
+
+  <script>
+    let countdown = 11; // seconds
+    const timerEl = document.querySelector('.timer');
+
+    const interval = setInterval(() => {
+      countdown--;
+      if (countdown <= 0) {
+        clearInterval(interval);
+        window.location.href = 'start.html'; // automatically go to card picking
+      } else {
+        timerEl.textContent = countdown;
+      }
+    }, 1000);
+
+    document.getElementById('continueBtn').addEventListener('click', () => {
+      window.location.href = 'start.html';
+    });
+  </script>
+</body>
+</html>

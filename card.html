@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarot Card Reader</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cardData = JSON.parse(localStorage.getItem("tarotCards"));
+
+    if (!cardData || !cardData.length) {
+        document.body.innerHTML = "<p style='color:white; text-align:center; font-family:KenyanCoffee;'>Not enough cards found. Please go back and draw cards first.</p>";
+        return;
+    }
+
+    const container = document.createElement("div");
+    container.className = "card-display-container";
+
+    const row = document.createElement("div");
+    row.className = "card-row";
+
+    cardData.forEach(card => {
+        const cardWrapper = document.createElement("div");
+        cardWrapper.className = "card-wrapper";
+
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "tarot-card";
+
+        const inner = document.createElement("div");
+        inner.className = "card-inner";
+
+        // Front of the card (image)
+        const front = document.createElement("div");
+        front.className = "card-front";
+        const img = document.createElement("img");
+        img.src = `https://www.sacred-texts.com/tarot/pkt/img/${card.id}.jpg`;
+        img.alt = card.name;
+        front.appendChild(img);
+
+        // Back of the card (white with meaning)
+        const back = document.createElement("div");
+        back.className = "card-back";
+        const desc = document.createElement("p");
+        desc.textContent = card.desc;
+        back.appendChild(desc);
+
+        inner.appendChild(front);
+        inner.appendChild(back);
+        cardDiv.appendChild(inner);
+
+        // Flip the card on click
+        cardDiv.addEventListener("click", () => {
+            cardDiv.classList.toggle("flipped");
+        });
+
+        // Name under the card
+        const nameLabel = document.createElement("h3");
+        nameLabel.className = "card-name-label";
+        nameLabel.textContent = card.name;
+
+        cardWrapper.appendChild(cardDiv);
+        cardWrapper.appendChild(nameLabel);
+        row.appendChild(cardWrapper);
+    });
+
+    container.appendChild(row);
+    document.body.appendChild(container);
+
+    // Back button
+    const backButton = document.createElement("button");
+    backButton.id = "backButton";
+    backButton.textContent = "← Get a New Reading";
+    backButton.addEventListener("click", () => {
+        window.location.href = "intent.html";
+    });
+    document.body.appendChild(backButton);
+});
+</script>
+</body>
+</html>

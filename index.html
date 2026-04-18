@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Tarot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Digital Tarot</h1>
+    <div class="subtitle">Tap into intuition. Draw your cards.</div>
+
+    <div class="cards">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+
+    <a href="intent.html" class="cta">Begin Reading</a>
+  </div>
+
+  <!-- Optional subtle JS animation for floating cards -->
+  <script>
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, i) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+        card.style.transform = `rotateX(${-y/10}deg) rotateY(${x/10}deg) translateY(-5px) scale(1.05)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
+</body>
+</html>

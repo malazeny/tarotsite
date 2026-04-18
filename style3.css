@@ -1,0 +1,47 @@
+body {
+    background-image: url('images/experiment.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+
+#top-text h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    font-family: 'KenyanCoffee', sans-serif;
+    text-align: center;
+}
+
+
+#back-button {
+    margin-top: 700px;
+}
+
+.button-class {
+    background-color: transparent;
+    color: rgb(208, 207, 207);
+    border: 1px solid rgb(208, 207, 207);
+    padding: 12px 32px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.button-class:hover {
+    background-color: rgb(208, 207, 207);
+    color: rgb(73, 3, 73);
+    transform: scale(1.05);
+}

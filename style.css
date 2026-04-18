@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "KenyanCoffee";
+    src: url("fonts/Kenyan Coffee Rg.otf");
+}
+
+  @font-face {
+    font-family: "Akira";
+    src: url("fonts/Akira Expanded Demo.otf");
+}
+
+body {
+    background: #1c0f2e;
+    color: white;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    padding: 2rem;
+  }
+     
+h2{
+    font-family: KenyanCoffee;
+    font-size: 40px;
+    margin-top: 200px;
+}
+  
+  .card-deck {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: -10px;
+    position: relative;
+  }
+  
+  .card {
+    width: 80px;
+    height: 120px;
+    background-image: url('images/tarotfront.jpg');
+    background-size: cover;
+    border: 2px solid #d4af37;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-20px) scale(1.05) !important;
+    z-index: 10;
+  }
+  
+  .card.selected {
+    outline: 3px solid #fff;
+  }
+  
