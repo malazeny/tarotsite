@@ -31,10 +31,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    perspective: 1000px; /* needed for tilt */
+    perspective: 1000px;
 }
 
-/* Tarot card container for flipping + hover tilt */
 .tarot-card {
     width: 250px;
     height: 380px;
@@ -44,7 +43,7 @@ body {
 }
 
 .card-wrapper:hover .tarot-card {
-    transform: rotateX(5deg) rotateY(5deg) scale(1.05); /* subtle tilt + zoom */
+    transform: rotateX(5deg) rotateY(5deg) scale(1.05); 
 }
 
 .card-inner {
@@ -59,7 +58,6 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Front and back faces */
 .card-front, .card-back {
     position: absolute;
     width: 100%;
@@ -94,7 +92,6 @@ body {
     font-size: 16px;
 }
 
-/* Name under each card */
 .card-name-label {
     color: white;
     font-family: KenyanCoffee;
@@ -103,7 +100,6 @@ body {
     text-align: center;
 }
 
-/* Nicer back button */
 #backButton {
     position: fixed;
     bottom: 25px;
